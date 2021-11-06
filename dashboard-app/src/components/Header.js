@@ -19,4 +19,4 @@ const Header = () => (
   </AppBar>
 );
 
-export default withRouter(Header);
+export default (Header);

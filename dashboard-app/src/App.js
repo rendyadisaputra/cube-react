@@ -20,17 +20,16 @@ const AppLayout = ({ children }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Header />
-      <div>Hello</div>
-      {/* <div>{children}</div> */}
+       <Header></Header>
+      <div> {children}</div>
     </div>
   );
 };
 
-// const App = ({ children }) => (
-//   <CubeProvider cubejsApi={cubejsApi}>
-//     <AppLayout>{children}</AppLayout>
-//   </CubeProvider>
-// );
+const App = ({ children }) => (
+  <CubeProvider cubejsApi={cubejsApi}>
+    <AppLayout>{children}</AppLayout>
+   </CubeProvider>
+);
 
 export default App;

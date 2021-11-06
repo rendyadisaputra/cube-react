@@ -3,8 +3,29 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import ChartRenderer from '../components/ChartRenderer';
 import Dashboard from '../components/Dashboard';
+import Header from '../components/Header';
 import DashboardItem from '../components/DashboardItem';
-const DashboardItems = [];
+const DashboardItems = [
+  {
+    id: 0,
+    name: 'New Chart',
+    vizState: {
+      query: {
+        measures: ['LineItems.count'],
+        timeDimensions: [
+          {
+            dimension: 'LineItems.createdAt',
+            granularity: 'day',
+          },
+        ],
+        order: {
+          'LineItems.createdAt': 'asc',
+        },
+      },
+      chartType: 'line',
+    },
+  },
+];
 
 const DashboardPage = () => {
   const dashboardItem = (item) => (
@@ -29,7 +50,10 @@ const DashboardPage = () => {
   );
 
   return DashboardItems.length ? (
-    <Dashboard>{DashboardItems.map(dashboardItem)}</Dashboard>
+    
+    <Dashboard>
+     
+       {DashboardItems.map(dashboardItem)}</Dashboard>
   ) : (
     <Empty />
   );
